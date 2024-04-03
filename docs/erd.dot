@@ -1,0 +1,70 @@
+digraph {
+    compound=true;
+    node [shape=circle, fixedsize=true, height=1.2]
+
+    subgraph cluster_pr {
+        label="PR"
+        pr_name [label="Name"];
+        pr_id [label="ID"];
+        pr_total [label="Total"];
+        pr_status [label="Status"];
+        pr_ticket_id [label="Ticket ID"]
+        pr_justification [label="Justification"];
+        pr_date [label="Date"];
+    }
+
+    subgraph cluster_pr_item {
+        label="PR Item"
+        pr_item_name [label="Name"];
+        pr_item_id [label="ID"];
+        pr_item_pr_id [label="PR.ID"];
+        pr_item_project_id [label="Project.ID"];
+        pr_item_dep_id [label="Department.ID", color=blue];
+        pr_item_vendor_id [label="Vendor.ID"];
+        pr_item_je_id [label="JE.id"];
+        pr_item_unit_price [label="Unit Price"]; 
+        pr_item_quanity [label="Quanity"];
+        pr_item_link [label="Link"];
+        pr_item_description [label="Description"];
+    }
+
+    subgraph cluster_project {
+        label="Project"
+        project_name [label="Name"];
+        project_id [label="ID"];
+    }
+
+    subgraph cluster_project_dep_budget {
+        label="Project Department Budget"
+        project_dep_project_id [label="Project.ID"];
+        project_dep_dep_id [label="Department.ID", color=blue];
+        project_dep_allocation [label="Allocation"];
+    }
+
+    subgraph cluster_department {
+        label="Department"
+        dep_name [label="Name"];
+        dep_id [label="ID", color=blue];
+        dep_allocation [label="Allocation"];
+    }
+
+    subgraph cluster_vendor {
+        label="Vendor"
+        vendor_name [label="Vendor Name"];
+        vendor_id [label="ID"];
+    }
+
+    // ok so this is where the first major design descision comes in
+    // We will be using double entry accounting
+    subgraph cluster_je {
+        label="Journal Entry"
+    }
+
+    pr_id -> pr_item_pr_id;
+    project_id -> pr_item_project_id;
+    project_id -> project_dep_project_id;
+    dep_id -> project_dep_dep_id [color=blue];
+    dep_id -> pr_item_dep_id [color=blue];
+    vendor_id -> pr_item_vendor_id;
+
+}
