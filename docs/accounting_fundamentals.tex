@@ -1,0 +1,91 @@
+%% Syntax Entry #, Credit Acct, Debit Acct, Credit Amt, Debit Amt
+\newcommand{\JournalEntry}[5]{%
+    \begin{tabular}{|l l l|}
+        \hline
+        \multicolumn{3}{|c|}{\textbf{Entry \##1}}\\
+        \hline
+        Account & Debit & Credit\\
+        \hline
+        #2 &  & #4\\
+        #3 & #5 & \\
+        \hline
+    \end{tabular}
+}
+
+\newcommand{\TChart}[3]{%
+    \begin{tabular}{c|c}
+        \multicolumn{2}{c}{\textbf{#1}}\\
+        \hline
+        Credits & Debits\\
+        #2 & #3
+    \end{tabular}
+
+}
+
+
+
+
+\chapter{Accounting Fundamentals}
+
+This section provides an overview of the accounting basics that I learned in preperation for working on this project.
+
+This was written by Gregory Bell and he has no idea what he is talking about.
+
+For more information, I would checkout the gnucash book as it is \textit{a lot} more detailed and written by actual experts.
+
+I also will be providing examples on how these princpals apply to Mines Little Theatre.
+
+\section{Debits and Credits}
+
+Credits and debits in accounting are different in accounting than they are in everyday lanuage. Infact, they are opposite of their common meaning.
+
+Accounting tracks the flow of \textbf{value}, not necessarily money \cite{NetsuiteDebitsCredit}. 
+Thusly, a debit generally tracks the flow of value \textbf{into} an asset or bank account, where as a debit tracks the flow \textbf{out} \cite{NetsuiteDebitsCredit}.
+
+Because a debit tracks the flow into an organizaion, it follows that it would increase the value of an asset like cash or an expense like rent.
+
+
+
+
+
+
+\section{The Journal}
+
+The journal is a record of all the transactions that a business makes.
+
+Every time that a transaction is made, a entry is entered into the journal.
+
+There are two primary types of journal entry methods, single entry, where each transaction is entered once as either a credit or a debit \cite{InvestopiaJournal}. 
+This is very simlar to how one may record transactions in a check book \cite{InvestopiaJournal}. It may be helpful to think of single entry accounting as the naive approach to accounting.
+During the 2023 - 2024 school year, Gregory Bell used a single entry journal for Mines Little Theatre.
+
+The other type of journal entry method is called double entry, where each transaction is entered as \textbf{both} a credit and a debit such that they sum to 0 \cite{InvestopiaJournal}.
+This journal entry method is a lot more robust, but is a lot more of a pain to maintain espcially given the already high time committment of MLT \cite{InvestopiaJournal, NetsuiteJournal}.
+
+Entries update the general ledger (techincally a system of ledgers where each account has its own ledger), which in turn updates the accounts balances \cite{NetsuiteJournal}.
+
+Becuase the journal tracks all of the financial activity for an organizaion, it is the underpinning of the rest of the accounting system.
+
+\subsection{Journal Entry}
+
+
+
+
+\section{Double Entry Accounting}
+
+As mentioned above, double entry accounting is a more robust way to record financial transactions. This is due to each transaction entering \textbf{both} a credit and debit \textbf{and} requiring that they sum to 0.
+
+This ensures that the fundamental accounting equation, $\textit{Assets} = \textit{Liabilities} + \textit{Equity}$, remains balanced.
+
+One of the primary benifits of using double entry accounting is that it makes auditing the books a lot simpler. It also allows us to have more transparency where money is coming from, and where money is going \cite{NetsuiteJournal}.
+
+Going forward, it is in Mines Little Theatre's best interest to use a double entry accounting system, espcially as our allocations get larger and our show budgets become more complex.
+
+Personally, I find it really hard to understand how double entry accounting works and how debiting and crediting work. The following examples will hopefully illuminate how double entry accounting works with in the context of Mines Little Theatre.
+
+\subsection{Example}
+
+\begin{tabular}{c c l}
+    \TChart{Ticket Sales}{Increases}{Decreases} & \JournalEntry{0001}{Ticket Sales}{}{100}{100} & Huzzah
+\end{tabular}
+

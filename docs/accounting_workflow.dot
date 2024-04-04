@@ -1,0 +1,6 @@
+digraph{
+    label = "Accounting Workflow";
+
+    je [label = "Journal Entry"];
+
+}

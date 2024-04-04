@@ -54,6 +54,11 @@ digraph {
         vendor_id [label="ID"];
     }
 
+    subgraph cluster_project_acc_map {
+        label="Project Accounts"
+        project_acc_map_project_id [label="Project.ID"]
+    }
+
     // ok so this is where the first major design descision comes in
     // We will be using double entry accounting
     subgraph cluster_je {
