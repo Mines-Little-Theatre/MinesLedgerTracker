@@ -1,29 +1,26 @@
-%% Syntax Entry #, Credit Acct, Debit Acct, Credit Amt, Debit Amt
 \newcommand{\JournalEntry}[5]{%
     \begin{tabular}{|l l l|}
         \hline
         \multicolumn{3}{|c|}{\textbf{Entry \##1}}\\
+        \multicolumn{2}{|l}{\today} & \multicolumn{1}{r|}{John Smith}\\
         \hline
         Account & Debit & Credit\\
         \hline
-        #2 &  & #4\\
-        #3 & #5 & \\
+        #2 &  & \$#4\\
+        #3 & \$#5 & \\
         \hline
     \end{tabular}
 }
 
-\newcommand{\TChart}[3]{%
+\newcommand{\TChart}[4]{%
     \begin{tabular}{c|c}
-        \multicolumn{2}{c}{\textbf{#1}}\\
+        \multicolumn{2}{c}{\makecell{\textbf{#1}\\(#2)}}\\
         \hline
-        Credits & Debits\\
-        #2 & #3
+        Debits & Credit\\
+        #3 & #4
     \end{tabular}
 
 }
-
-
-
 
 \chapter{Accounting Fundamentals}
 
@@ -40,14 +37,23 @@ I also will be providing examples on how these princpals apply to Mines Little T
 Credits and debits in accounting are different in accounting than they are in everyday lanuage. Infact, they are opposite of their common meaning.
 
 Accounting tracks the flow of \textbf{value}, not necessarily money \cite{NetsuiteDebitsCredit}. 
-Thusly, a debit generally tracks the flow of value \textbf{into} an asset or bank account, where as a debit tracks the flow \textbf{out} \cite{NetsuiteDebitsCredit}.
 
-Because a debit tracks the flow into an organizaion, it follows that it would increase the value of an asset like cash or an expense like rent.
+The fundemental accounting equation $\textit{Assets} = \textit{Liabilities} + \textit{Equity}$ dictates that all debits and credits must be equal \cite{AccountingCoachDebit}.
 
+Finally, there must be an equal number of credits and debits for each transaction \cite{AccountingCoachDebit}. 
 
+This concept will be explored more in \nameref{DoubleEntryAccounting}.
 
+\subsection{Example}
+Generally, accounts are displayed in a T Chart. \\
 
+\begin{tabular}{C{.33\linewidth}|L{.66\linewidth}}
+    \TChart{Cash}{Asset}{Increase}{Decrease} & This T chart shows how an asset account (in this case cash) is setup to increase value with a debit and decrease value with a credit \cite{AccountingCoachDebit}.\\
+    \TChart{Rent}{Expense}{Increase}{Decrease} & This T chart shows how an expense account (which is an asset) is setup to increase value with a debit and decrease value with a credit. Think about how the liability would increase as this expense increases \cite{AccountingCoachDebit}.\\
+    \TChart{Reveune}{Equity}{Decrease}{Increase} & This T chart shows how reveune (which is equity) decreases with a debit, and increases with a credit \cite{NetsuiteDebitsCredit}.
+\end{tabular}
 
+\clearpage
 
 \section{The Journal}
 
@@ -68,10 +74,19 @@ Becuase the journal tracks all of the financial activity for an organizaion, it 
 
 \subsection{Journal Entry}
 
+When using double entry accounting, each journal must have and equal number of debits and credits.
 
+For the purposes of MLT (being that we are a school organizaion) there is only one debit and credit per entry.
 
+This is a naive approach to double entry accounting, but I don't think that there is need for a more complex system.
 
-\section{Double Entry Accounting}
+\begin{tabular}{C{.5\linewidth}|L{.5\linewidth}}
+    \JournalEntry{00000}{Accounts Payable}{Rent}{100}{1000} & Notice how this entry is \textbf{not} in balance. There are an unqual number of credits to debits.\\
+    \\
+    \JournalEntry{00001}{Accounts Payable}{Rent}{1000}{1000} & Notice how this entry \textbf{is} in balance. This entry would be posted to the general ledger at the end of the accounting period.\\
+\end{tabular}
+
+\section{Double Entry Accounting} \label{DoubleEntryAccounting}
 
 As mentioned above, double entry accounting is a more robust way to record financial transactions. This is due to each transaction entering \textbf{both} a credit and debit \textbf{and} requiring that they sum to 0.
 
@@ -84,8 +99,58 @@ Going forward, it is in Mines Little Theatre's best interest to use a double ent
 Personally, I find it really hard to understand how double entry accounting works and how debiting and crediting work. The following examples will hopefully illuminate how double entry accounting works with in the context of Mines Little Theatre.
 
 \subsection{Example}
+Let the chart of accounts look like this:\\
 
-\begin{tabular}{c c l}
-    \TChart{Ticket Sales}{Increases}{Decreases} & \JournalEntry{0001}{Ticket Sales}{}{100}{100} & Huzzah
+\begin{center}
+    \begin{tabular}{cc}
+        \TChart{Ticket Sales}{Equity}{Decrease}{Increase} & \TChart{Cash}{Asset}{Increase}{Decrease}
+    \end{tabular}
+    \vspace{1cm}
+
+    \begin{tabular}{r|ll}
+        Account & Debit & Credit\\
+        \hline
+        Ticket Sales & & \$500.00\\
+        Cash & \$500.00 & \\
+    \end{tabular}
+\end{center}
+
+
+\begin{gather*}
+    \textit{Assets} = \textit{Liabilities} + \textit{Equity}\\
+    \textit{Assets} = \mathlarger{\mathlarger{\sum}}\textit{total balances} = \text{\$}500.00\\
+    \textit{Liabilities} = \mathlarger{\mathlarger{\sum}}\textit{total balances} = \text{\$}0.00\\
+    \textit{Equity} = \mathlarger{\mathlarger{\sum}}\textit{total balances} = \text{\$}500.00\\
+    \text{\$}500.00 = 0 + \text{\$}500.00
+\end{gather*}
+
+As you can see, the accounting equation is balanced before we we enter a new journal entry.
+
+Thus, a journal entry for this chart of accounts using double entry accounting would look like:\\
+
+\begin{tabular}{C{.5\linewidth}|L{.5\linewidth}}
+    \JournalEntry{0001}{Ticket Sales}{Cash}{100}{100} & This example shows how a journal entry would be entered for \$100 earned in ticket sales.\\
+    &\\
+    \JournalEntry{0002}{Cash}{Ticket Sales}{10}{10} & This example shows how a journal entry would be entered for a \$10 refund.
 \end{tabular}
+
+\begin{center}
+    \begin{tabular}{r|ll}
+        Account & Debit & Credit\\
+        \hline
+        Ticket Sales & & \$590.00\\
+        Cash & \$590.00 & \\
+    \end{tabular}
+\end{center}
+
+Notice how our total cash increased, but the accounting equation is still equal to zero.
+
+
+\section{The Ledger}
+
+The ledger is an imutable source of truth for each financial account built from the journal when journal entries are ``posted''.
+
+MLT has labeled many things as a ``ledger'' in the past, but they functioned more like a journal. This isn't wrong persay, but it does mean that the source of truth can change which isn't ideal.
+
+In order to ensure that MLT's finances remain as accurate as possible, an effective ledger must be created
 
